@@ -8,6 +8,7 @@ class Contact {
 		Contact();
 		~Contact();
 		int	fillContact();
+		void	showTable();
 
 	private:
 		static const int MAX_FIELDS = 5;

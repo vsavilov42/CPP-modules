@@ -11,8 +11,8 @@ int main() {
 	while (std::cout << "Pbook> ", std::getline(std::cin, line)) {
 		if (line == "EXIT")
 			break ;
-		//else if (line == "SEARCH")
-		//	PhoneBook->searchContact();
+		else if (line == "SEARCH")
+			phoneBook->searchContact();
 		else if (line == "ADD")
 			phoneBook->addContact();
 		else if (std::cin.eof())

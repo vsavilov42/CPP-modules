@@ -7,11 +7,13 @@ class Contact {
 	public:
 		Contact();
 		~Contact();
-		int	fillContact();
+		int	fillContact(int index);
 		void	showTable();
+		void	showInfo();
 
 	private:
 		static const int MAX_FIELDS = 5;
+		int		index;
 		std::string	firstName;
 		std::string	lastName;
 		std::string	nickName;

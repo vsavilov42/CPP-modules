@@ -1,38 +1,66 @@
 #include "contact.hpp"
 
 #include <iostream>
+#include <iomanip> /* setw() */
 
-using namespace std; /* std:: */
-
-Contact::Contact() {}
+Contact::Contact() { index = 0; }
 
 Contact::~Contact() {}
 
-int	Contact::fillContact() {
+int	Contact::fillContact(int index) {
+
+	this->index = index + 1;
 	while (this->firstName.empty()) {
-		cout << "Add contact: Name: ";
-		getline(std::cin, this->firstName);
-		if (cin.eof()) { cin.clear(); return 1; }
+		std::cout << "Add contact: Name: ";
+		std::getline(std::cin, this->firstName);
+		if (std::cin.eof()) { std::cin.clear(); return 1; }
 		if (this->firstName.length() == 0)
-			cout << "Error: Name is required" << endl;
+			std::cout << "Error: Name is required" << std::endl;
 	}
 
-	cout << "Add contact: Last name: ";
-	getline(cin, this->lastName);
-	if (cin.eof()) { cin.clear(); return 1; }
+	std::cout << "Add contact: Last name: ";
+	std::getline(std::cin, this->lastName);
+	if (std::cin.eof()) { std::cin.clear(); return 1; }
 	
-	cout << "Add contact: Nick name: ";
-	getline(std::cin, this->nickName);
-	if (cin.eof()) { cin.clear(); return 1; }
+	std::cout << "Add contact: Nick name: ";
+	std::getline(std::cin, this->nickName);
+	if (std::cin.eof()) { std::cin.clear(); return 1; }
 	
-	cout << "Add contact: Phone number: ";
-	getline(cin, this->phone);
-	if (cin.eof()) { cin.clear(); return 1; }	
+	std::cout << "Add contact: Phone number: ";
+	std::getline(std::cin, this->phone);
+	if (std::cin.eof()) { std::cin.clear(); return 1; }
 	
-	cout << "Add contact: Darkest secret: ";
-	getline(cin, this->darkestSecret);
-	if (cin.eof()) { cin.clear(); return 1; }
+	std::cout << "Add contact: Darkest secret: ";
+	std::getline(std::cin, this->darkestSecret);
+	if (std::cin.eof()) { std::cin.clear(); return 1; }
 	
-	cout << endl;
+	std::cout << std::endl;
 	return 0;
+}
+
+void	Contact::showTable() {
+	std::cout << "|" << std::right << std::setw(10) << this->index << "|";
+	
+	if (this->firstName.length() > 10)
+		std::cout << this->firstName.substr(0, 9) << ".";
+	else
+		std::cout << std::right << std::setw(10) << this->firstName;
+	std::cout << "|";
+	
+	if (this->lastName.length() > 10)
+		std::cout << this->lastName.substr(0, 9) << ".";
+	else
+		std::cout << std::right << std::setw(10) << this->lastName;
+	std::cout << "|";
+	
+	if (this->nickName.length() > 10)
+		std::cout << this->nickName.substr(0, 9) << ".";
+	else
+		std::cout << std::right << std::setw(10) << this->nickName;
+	std::cout << "|";
+	std::cout << std::endl;
+}
+
+void	Contact::showInfo() {
+	
 }

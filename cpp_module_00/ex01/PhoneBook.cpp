@@ -1,4 +1,5 @@
 #include "PhoneBook.hpp"
+#include <sstream> /* istringstream() */
 
 PhoneBook::PhoneBook() {
 	this->idContact = 0;
@@ -18,7 +19,7 @@ void	PhoneBook::addContact() {
 	std::cout << std::endl;
 
 	Contact *tmp = new Contact;
-	if (tmp->fillContact()) {
+	if (tmp->fillContact(idContact)) {
 		delete tmp;
 	} else {
 		delete this->contact[this->idContact];
@@ -40,9 +41,32 @@ void	PhoneBook::searchContact() {
 	<< "|-------------------------------------------|\n"
 	<< "|     Index|First Name| Last Name|  Nickname|\n"
 	<< "|-------------------------------------------|\n";
-	for (int i = 0; i < this->idConctact; i++) {
+	for (int i = 0; i < this->currentContact; i++) {
 		this->contact[i]->showTable();
 		std::cout << "|-------------------------------------------|" << std::endl;
+	}
+	std::cout << std::endl;
+	std::cout << "Enter index of a contact for extended information or type EXIT to return" << std::endl;
+	bool valid = true;
+	int IndexTmp = 0;
+	std::string str;
+
+	while (valid) {
+		std::cout << "Index: ";
+		std::getline(std::cin, str);
+		std::istringstream(str) >> IndexTmp;
+		if (str == "EXIT")
+			break ;
+		else if (str.length() > 1) {
+			std::cout << "Error: Invalid Index" << std::endl;
+		}
+		else if (IndexTmp > 0 && IndexTmp <= this->currentContact) {
+			this->contact[IndexTmp - 1]->showInfo();
+			break ;
+		}
+		else
+			std::cout << "Error: Invalid Index" << std::endl;
+
 	}
 	std::cout << std::endl;
 }

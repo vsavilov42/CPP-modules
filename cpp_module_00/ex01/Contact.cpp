@@ -62,5 +62,13 @@ void	Contact::showTable() {
 }
 
 void	Contact::showInfo() {
-	
+
+	std::cout << std::endl << "Pbook extended information:" << std::endl;
+	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl << std::endl;
+	std::cout << "&> First Name: " << this->firstName << std::endl;
+	std::cout << "&> Last Name: " << this->lastName << std::endl;
+	std::cout << "&> Nick Name: " << this->nickName << std::endl;
+	std::cout << "&> Phone: " << this->phone << std::endl;
+	std::cout << "&> Darkest Secret: " << this->darkestSecret << std::endl;
+	std::cout << std::endl;
 }

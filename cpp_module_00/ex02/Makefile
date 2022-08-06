@@ -1,4 +1,4 @@
-NAME = $(shell date +%Y%m%d_%H%M%S)
+NAME = GlobalBankersUnited
 
 CXX = clang++
 
@@ -12,7 +12,6 @@ OBJ = $(SRC:%.cpp=%.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo $(NAME) > .bin_time
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
 %.o: %.cpp
@@ -22,8 +21,7 @@ clean:
 	rm -rf $(OBJ)
 
 fclean: clean
-	rm -rf $(shell cat .bin_time)
-	@rm -rf .bin_time
+	rm -rf $(NAME)
 
 re: fclean all
 

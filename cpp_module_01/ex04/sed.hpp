@@ -9,15 +9,16 @@
 
 class Sed {
 	public:
-		Sed( std::string  const filename, std::string s1, std::string s2 );
+		Sed( std::string const filename, std::string const &s1, std::string const &s2 );
 		~Sed();
 
-		std::string	sedReplace( void );
-		static bool		manageFile( std::string const file, std::string s1, std::string s2 );
+		static bool	manageFile( std::string const file, std::string const s1, std::string const s2 );
 	private:
-		std::string	_filename;
-		std::string	_s1;
-		std::string	_s2;
+		std::string	_sedReplace( void );
+		
+		std::string const	_filename;
+		std::string const	&_s1;
+		std::string const	&_s2;
 };
 
 #endif

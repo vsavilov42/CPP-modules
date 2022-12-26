@@ -11,7 +11,7 @@ class Fixed {
 		int	getRawBits( void ) const;
 		int	setRawBits( int const raw );
 	private:
-		static const int	_num_bits = 8;
+		static const int	_numBits = 8;
 		int			_bits;
 };
 

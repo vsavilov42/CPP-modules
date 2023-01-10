@@ -4,9 +4,15 @@
 
 Fixed::Fixed():_bits(0) { std::cout << "Default constructor called" << std::endl; }
 
-Fixed::Fixed( const int n ):_bits(n) { std::cout << "Int constructor called" << std::endl; }
+Fixed::Fixed( const int n ) {
+	std::cout << "Int constructor called" << std::endl;
+	this->_bits = n << Fixed::_numBits;
+}
 
-Fixed::Fixed( const float n ):_bits(n) { std::cout << "Float constuctor called" << std::endl; }
+Fixed::Fixed( const float n ) {
+	std::cout << "Float constuctor called" << std::endl;
+	this->_bits = roundf(n * (1 << Fixed::_numBits));
+}
 
 Fixed::~Fixed() { std::cout << "Destructor called" << std::endl; }
 

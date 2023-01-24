@@ -21,9 +21,13 @@ Fixed::Fixed( const Fixed& copy ) {
 	*this = copy;
 }
 
+//Overload operators
+
 std::ostream &operator<<( std::ostream& os, const Fixed& lhs ) {
 	return os << lhs.toFloat();
 }
+
+//Assignment operators
 
 Fixed& Fixed::operator=( const Fixed& lhs ) {
 	std::cout << "Assignation operator called" << std::endl;
@@ -31,13 +35,51 @@ Fixed& Fixed::operator=( const Fixed& lhs ) {
 	return *this;
 }
 
-Fixed Fixed::operator+(const Fixed& lhs) const {
-	Fixed res = this->_bits + lhs._bits;
+//Relational
+
+bool Fixed::operator==( const Fixed& lhs ) const {
+	return this->_bits == lhs._bits;
+}
+
+bool Fixed::operator!=( const Fixed& lhs ) const {
+	return this->_bits != lhs._bits;
+}
+
+bool Fixed::operator>( const Fixed& lhs ) const {
+	return this->_bits > lhs._bits;
+}
+
+bool Fixed::operator<( const Fixed& lhs ) const {
+	return this->_bits < lhs._bits;
+}
+
+bool Fixed::operator>=( const Fixed& lhs ) const {
+	return this->_bits >= lhs._bits;
+}
+
+bool Fixed::operator<=( const Fixed& lhs ) const {
+	return this->_bits <= lhs._bits;
+}
+
+//Binary arithmetic
+
+Fixed Fixed::operator+( const Fixed& lhs ) const {
+	Fixed res = (float)this->_bits / (1 << this->_numBits) + (float)lhs._bits / (1 << this->_numBits);
 	return res;
 }
 
-Fixed Fixed::operator*(const Fixed& lhs) const {
-	Fixed res = this->_bits * lhs._bits;
+Fixed Fixed::operator-( const Fixed& lhs ) const {
+	Fixed res = (float)this->_bits / (1 << this->_numBits) - (float)lhs._bits / (1 << this->_numBits);
+	return res;
+}
+
+Fixed Fixed::operator*( const Fixed& lhs ) const {
+	Fixed res = (float)this->_bits / (1 << this->_numBits) * (float)lhs._bits / (1 << this->_numBits);
+	return res;
+}
+
+Fixed Fixed::operator/( const Fixed& lhs ) const {
+	Fixed res = (float)this->_bits / (1 << this->_numBits) / (float)lhs._bits / (1 << this->_numBits);
 	return res;
 }
 

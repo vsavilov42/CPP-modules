@@ -8,20 +8,25 @@ class Fixed {
 		Fixed( const float n );
 		~Fixed();
 		Fixed( const Fixed& copy );
-		
-		Fixed &operator=( const Fixed& lhs );
-		void operator==( const Fixed& lhs ) const;
-		void operator!=( const Fixed& lhs ) const;
-		void operator>( const Fixed& lhs ) const;
-		void operator<( const Fixed& lhs ) const;
-		void operator>=( const Fixed& lhs ) const;
-		void operator<=( const Fixed& lhs ) const;
 
+		//Assignment
+		Fixed &operator=( const Fixed& lhs );
+
+		//Relational
+		bool operator==( const Fixed& lhs ) const;
+		bool operator!=( const Fixed& lhs ) const;
+		bool operator>( const Fixed& lhs ) const;
+		bool operator<( const Fixed& lhs ) const;
+		bool operator>=( const Fixed& lhs ) const;
+		bool operator<=( const Fixed& lhs ) const;
+
+		//Binary arithmetic
 		Fixed operator+( const Fixed& lhs ) const;
 		Fixed operator-( const Fixed& lhs ) const;
 		Fixed operator*( const Fixed& lhs ) const;
 		Fixed operator/( const Fixed& lhs ) const;
 
+		//Unary arithmetic
 		Fixed &operator++();
 		Fixed &operator--();
 

@@ -42,7 +42,7 @@ bool Fixed::operator==( const Fixed& lhs ) const {
 }
 
 bool Fixed::operator!=( const Fixed& lhs ) const {
-	return this->_bits != lhs._bits;
+	return !operator==(lhs);
 }
 
 bool Fixed::operator>( const Fixed& lhs ) const {
@@ -54,32 +54,32 @@ bool Fixed::operator<( const Fixed& lhs ) const {
 }
 
 bool Fixed::operator>=( const Fixed& lhs ) const {
-	return this->_bits >= lhs._bits;
+	return !operator<(lhs);
 }
 
 bool Fixed::operator<=( const Fixed& lhs ) const {
-	return this->_bits <= lhs._bits;
+	return !operator>(lhs);
 }
 
 //Binary arithmetic
 
 Fixed Fixed::operator+( const Fixed& lhs ) const {
-	Fixed res = (float)this->_bits / (1 << this->_numBits) + (float)lhs._bits / (1 << this->_numBits);
+	Fixed res = static_cast<float>(this->_bits) / (1 << this->_numBits) + static_cast<float>(lhs._bits) / (1 << this->_numBits);
 	return res;
 }
 
 Fixed Fixed::operator-( const Fixed& lhs ) const {
-	Fixed res = (float)this->_bits / (1 << this->_numBits) - (float)lhs._bits / (1 << this->_numBits);
+	Fixed res = static_cast<float>(this->_bits) / (1 << this->_numBits) - static_cast<float>(lhs._bits) / (1 << this->_numBits);
 	return res;
 }
 
 Fixed Fixed::operator*( const Fixed& lhs ) const {
-	Fixed res = (float)this->_bits / (1 << this->_numBits) * (float)lhs._bits / (1 << this->_numBits);
+	Fixed res = static_cast<float>(this->_bits) / (1 << this->_numBits) * static_cast<float>(lhs._bits) / (1 << this->_numBits);
 	return res;
 }
 
 Fixed Fixed::operator/( const Fixed& lhs ) const {
-	Fixed res = (float)this->_bits / (1 << this->_numBits) / (float)lhs._bits / (1 << this->_numBits);
+	Fixed res = static_cast<float>(this->_bits) / (1 << this->_numBits) / static_cast<float>(lhs._bits) / (1 << this->_numBits);
 	return res;
 }
 
@@ -105,6 +105,23 @@ Fixed Fixed::operator--(int) {
 	this->_bits -= 1;
 	return tmp;
 }
+
+//Min, Max operators
+
+/*static const Fixed& min(const Fixed& f1, const Fixed& f2){
+	if (f1 < f2)
+		return f1;
+	else
+		return f2;
+}
+
+static const Fixed& max(const Fixed& f1, const Fixed& f2) {
+	if (f1 < f2)
+		return f2;
+	else
+		return f1;
+} */
+
 
 int	Fixed::getRawBits( void ) const {
 	std::cout << "getRawBits member function called" << std::endl;

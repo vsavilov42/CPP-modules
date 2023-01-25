@@ -108,19 +108,19 @@ Fixed Fixed::operator--(int) {
 
 //Min, Max operators
 
-/*static const Fixed& min(const Fixed& f1, const Fixed& f2){
+const Fixed& Fixed::min(const Fixed& f1, const Fixed& f2) {
 	if (f1 < f2)
 		return f1;
 	else
 		return f2;
 }
 
-static const Fixed& max(const Fixed& f1, const Fixed& f2) {
+const Fixed& Fixed::max(const Fixed& f1, const Fixed& f2) {
 	if (f1 < f2)
 		return f2;
 	else
 		return f1;
-} */
+}
 
 
 int	Fixed::getRawBits( void ) const {
@@ -134,7 +134,7 @@ int	Fixed::setRawBits( int const raw ) {
 }
 
 float	Fixed::toFloat( void ) const {
-	return (float)this->_bits / (1 << Fixed::_numBits);
+	return static_cast<float>(this->_bits) / (1 << Fixed::_numBits);
 }
 
 int	Fixed::toInt( void ) const {

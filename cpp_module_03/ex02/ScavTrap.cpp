@@ -27,7 +27,7 @@ ScavTrap::ScavTrap( const ScavTrap& copy ) {
 }
 
 ScavTrap::~ScavTrap( void ) {
-	std::cout << "Destructor called by: " <<  this->_name << std::endl;
+	std::cout << "Destructor called (ScavTrap) by: " <<  this->_name << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=( const ScavTrap& lhs ) {

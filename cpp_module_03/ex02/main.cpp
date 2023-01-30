@@ -1,12 +1,13 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main() {
-	ClapTrap *def = new ClapTrap();
-	ScavTrap *pmc = new ScavTrap("PMC");
-	ScavTrap *defScav = new ScavTrap("Scav");
-	ScavTrap *scav = new ScavTrap(*defScav);
+	ScavTrap *def = new ScavTrap();
+	FragTrap *pmc = new FragTrap("PMC");
+	FragTrap *defScav = new FragTrap("Scav");
+	FragTrap *scav = new FragTrap(*defScav);
 
 	//Attack phase
 	std::cout << std::endl << "Attack phase" << std::endl;
@@ -17,9 +18,9 @@ int main() {
 	//Take Damage phase
 	std::cout << std::endl << "Take damage phase" << std::endl;
 	def->takeDamage(8);
-	pmc->takeDamage(8);
-	pmc->takeDamage(8);
-	pmc->takeDamage(8);
+	pmc->takeDamage(20);
+	pmc->takeDamage(200);
+	pmc->takeDamage(20);
 	scav->takeDamage(10);
 
 	//Repaired phase
@@ -30,8 +31,12 @@ int main() {
 
 	//Guard phase
 	std::cout << std::endl << "Guard phase" << std::endl;
-	pmc->guardGate();
-	scav->guardGate();
+	def->guardGate();
+
+	//High Five phase
+	std::cout << std::endl << "High five phase" << std::endl;
+	pmc->highFivesGuys();
+	scav->highFivesGuys();
 
 	std::cout << std::endl;
 

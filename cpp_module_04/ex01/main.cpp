@@ -54,5 +54,10 @@ int main() {
 	for (int i = 0; i < 2; i++) {
 		std::cout << cat2->getBrain()->ideas[i] << std::endl;
 	}
+
+	delete cat;
+	delete cat2;
+	delete dog;
+	delete chicken;
 	return 0;
 }

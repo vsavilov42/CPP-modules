@@ -1,9 +1,9 @@
 #include <iostream>
 #include "Fixed.hpp"
 
-Fixed::Fixed():_bits(0) { std::cout << "Default constructor called" << std::endl; }
+Fixed::Fixed( void ):_bits(0) { std::cout << "Default constructor called" << std::endl; }
 
-Fixed::~Fixed() { std::cout << "Destructor called" << std::endl; }
+Fixed::~Fixed( void ) { std::cout << "Destructor called" << std::endl; }
 
 Fixed::Fixed( const Fixed& copy ) {
 	std::cout << "Copy construct called" << std::endl;

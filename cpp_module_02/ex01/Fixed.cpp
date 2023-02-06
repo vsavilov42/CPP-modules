@@ -2,7 +2,7 @@
 #include <cmath> /* roundf */
 #include "Fixed.hpp"
 
-Fixed::Fixed():_bits(0) { std::cout << "Default constructor called" << std::endl; }
+Fixed::Fixed( void ):_bits(0) { std::cout << "Default constructor called" << std::endl; }
 
 Fixed::Fixed( const int n ) {
 	std::cout << "Int constructor called" << std::endl;
@@ -14,7 +14,7 @@ Fixed::Fixed( const float n ) {
 	this->_bits = roundf(n * (1 << Fixed::_numBits));
 }
 
-Fixed::~Fixed() { std::cout << "Destructor called" << std::endl; }
+Fixed::~Fixed( void ) { std::cout << "Destructor called" << std::endl; }
 
 Fixed::Fixed( const Fixed& copy ) {
 	std::cout << "Copy constructor called" << std::endl;

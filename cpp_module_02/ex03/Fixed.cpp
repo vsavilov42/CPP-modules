@@ -2,7 +2,7 @@
 #include <cmath> /* roundf */
 #include "Fixed.hpp"
 
-Fixed::Fixed():_bits(0) { }
+Fixed::Fixed( void ):_bits(0) { }
 
 Fixed::Fixed( const int n ) {
 	this->_bits = n << Fixed::_numBits;
@@ -12,7 +12,7 @@ Fixed::Fixed( const float n ) {
 	this->_bits = roundf(n * (1 << Fixed::_numBits));
 }
 
-Fixed::~Fixed() { }
+Fixed::~Fixed( void ) { }
 
 Fixed::Fixed( const Fixed& copy ) {
 	*this = copy;
@@ -80,23 +80,23 @@ Fixed Fixed::operator/( const Fixed& lhs ) const {
 }
 
 // Increment - Decrement class ++a, a++.
-Fixed& Fixed::operator++() {
+Fixed& Fixed::operator++( void ) {
 	this->_bits += 1;
 	return *this;
 }
 
-Fixed Fixed::operator++(int) {
+Fixed Fixed::operator++( int ) {
 	Fixed tmp = *this;
 	this->_bits += 1;
 	return tmp;
 }
 
-Fixed& Fixed::operator--() {
+Fixed& Fixed::operator--( void ) {
 	this->_bits -= 1;
 	return *this;
 }
 
-Fixed Fixed::operator--(int) {
+Fixed Fixed::operator--( int ) {
 	Fixed tmp = *this;
 	this->_bits -= 1;
 	return tmp;
@@ -104,14 +104,14 @@ Fixed Fixed::operator--(int) {
 
 //Min, Max operators
 
-const Fixed& Fixed::min(const Fixed& f1, const Fixed& f2) {
+const Fixed& Fixed::min( const Fixed& f1, const Fixed& f2 ) {
 	if (f1 < f2)
 		return f1;
 	else
 		return f2;
 }
 
-const Fixed& Fixed::max(const Fixed& f1, const Fixed& f2) {
+const Fixed& Fixed::max( const Fixed& f1, const Fixed& f2 ) {
 	if (f1 < f2)
 		return f2;
 	else

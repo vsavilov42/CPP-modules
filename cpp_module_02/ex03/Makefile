@@ -6,11 +6,11 @@
 #    By: Vsavilov <Vsavilov@student.42Madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 17:21:42 by Vsavilov          #+#    #+#              #
-#    Updated: 2023/01/25 18:47:33 by Vsavilov         ###   ########.fr        #
+#    Updated: 2023/02/06 18:32:33 by Vsavilov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Fixed
+NAME = Triangle
 
 CXX = clang++
 

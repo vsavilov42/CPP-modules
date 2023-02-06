@@ -3,10 +3,10 @@
 
 class Fixed {
 	public:
-		Fixed();
+		Fixed( void );
 		Fixed( const int n );
 		Fixed( const float n );
-		~Fixed();
+		~Fixed( void );
 		Fixed( const Fixed& copy );
 
 		//Assignment
@@ -27,14 +27,14 @@ class Fixed {
 		Fixed operator/( const Fixed& lhs ) const;
 
 		//Unary arithmetic
-		Fixed &operator++();
-		Fixed &operator--();
+		Fixed &operator++( void );
+		Fixed &operator--( void );
 
-		Fixed operator++(int);
-		Fixed operator--(int);
+		Fixed operator++( int );
+		Fixed operator--( int );
 
-		static const Fixed& min(const Fixed& f1, const Fixed& f2);
-		static const Fixed& max(const Fixed& f1, const Fixed& f2);
+		static const Fixed& min( const Fixed& f1, const Fixed& f2 );
+		static const Fixed& max( const Fixed& f1, const Fixed& f2 );
 
 		int	getRawBits( void ) const;
 		int	setRawBits( int const raw );

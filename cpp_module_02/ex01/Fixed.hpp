@@ -3,10 +3,10 @@
 
 class Fixed {
 	public:
-		Fixed();
+		Fixed( void );
 		Fixed( const int n );
 		Fixed( const float n );
-		~Fixed();
+		~Fixed( void );
 		Fixed( const Fixed& copy );
 		Fixed &operator=( const Fixed& lhs );
 		

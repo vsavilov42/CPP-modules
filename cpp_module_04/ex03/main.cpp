@@ -1,5 +1,4 @@
 #include <iostream>
-#include "AMateria.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
 #include "MateriaSource.hpp"

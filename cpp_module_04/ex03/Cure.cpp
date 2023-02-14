@@ -1,11 +1,11 @@
 #include <iostream>
 #include "Cure.hpp"
 
-Cure::Cure( void ):AMateria("Heal") { }
+Cure::Cure( void ):AMateria("cure") { }
 
 Cure::~Cure( void ) { }
 
-Cure::Cure( const Cure& copy ):AMateria("Heal") {
+Cure::Cure( const Cure& copy ):AMateria("cure") {
 	*this = copy;
 }
 

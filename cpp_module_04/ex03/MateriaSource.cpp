@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource( void ):_nMateria(0) {

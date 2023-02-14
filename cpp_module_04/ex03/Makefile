@@ -6,7 +6,7 @@
 #    By: Vsavilov <Vsavilov@student.42Madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/15 17:21:42 by Vsavilov          #+#    #+#              #
-#    Updated: 2023/02/04 17:03:56 by Vsavilov         ###   ########.fr        #
+#    Updated: 2023/02/14 18:28:11 by Vsavilov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,14 @@ NAME = Interface
 
 CXX = clang++
 
-CXXFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3 -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp \
+      MateriaSource.cpp \
       AMateria.cpp \
       Character.cpp \
       Ice.cpp \
       Cure.cpp \
-      MateriaSource.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 

@@ -1,11 +1,11 @@
 #include <iostream>
 #include "Ice.hpp"
 
-Ice::Ice( void ):AMateria("Ice") { }
+Ice::Ice( void ):AMateria("ice") { }
 
 Ice::~Ice( void ) { }
 
-Ice::Ice( const Ice& copy ):AMateria("Ice") {
+Ice::Ice( const Ice& copy ):AMateria("ice") {
 	*this = copy;
 }
 

@@ -32,7 +32,7 @@ const std::string& Character::getName( void ) const {
 	return this->_name;
 }
 
-void Character::equip( AMateria *m ) {
+void Character::equip( AMateria* m ) {
 	if (this->_nEquiped < Character::maxInventory) {
 		this->_inventory[this->_nEquiped] = m;
 		this->_nEquiped++;
@@ -41,10 +41,9 @@ void Character::equip( AMateria *m ) {
 
 void Character::unequip( int idx ) {
 	int i;
-
 	if (idx >= 0 && idx < this->_nEquiped) {
 		delete this->_inventory[idx];
-		for (i = idx ; i < this->_nEquiped - 1; i++) {
+		for (i = idx; i < this->_nEquiped - 1; i++) {
 			this->_inventory[i] = this->_inventory[i + 1];
 		}
 		this->_inventory[i] = NULL;
@@ -52,10 +51,9 @@ void Character::unequip( int idx ) {
 	}
 }
 
-void Character::use(int idx, ICharacter &target) {
+void Character::use(int idx, ICharacter& target) {
 	if (idx >= 0 && idx < this->_nEquiped) {
 		this->_inventory[idx]->use(target);
-		return ;
 	}
 	else
 		std::cout << "Can't use materia with id " << idx << std::endl;

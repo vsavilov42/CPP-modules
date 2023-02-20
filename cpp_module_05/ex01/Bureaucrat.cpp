@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat( void ) { }
+Bureaucrat::Bureaucrat( void ){ }
 
 Bureaucrat::Bureaucrat( const std::string name, int grade ):_name(name), _grade(grade) {
 	std::cout << "Bureaucrat created" << std::endl;
@@ -40,6 +40,10 @@ void Bureaucrat::validGrade( int grade ) {
 		throw Bureaucrat::GradeTooHighException();
 	if (grade > this->minGrade)
 		throw Bureaucrat::GradeTooLowException();
+}
+
+void Bureaucrat::signForm( Form& form ) {
+	form.geSigned(*this);
 }
 
 const char *Bureaucrat::GradeTooLowException::what( void ) const throw() {

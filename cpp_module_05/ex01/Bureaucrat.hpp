@@ -3,6 +3,9 @@
 
 # include <string>
 # include <exception> /* what() -> return null terminated for identify exception */
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
 	public:
@@ -25,6 +28,7 @@ class Bureaucrat {
 		void decrement( int n );
 
 		void validGrade( int grade );
+		void signForm( Form& form );
 
 		class GradeTooHighException : public std::exception {
 			public: const char *what() const throw();

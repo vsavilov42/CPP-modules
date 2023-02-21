@@ -23,10 +23,10 @@ class Form {
 		void beSigned( const Bureaucrat& bureaucrat );
 
 		class GradeTooHighException : public std::exception {
-			public: const char* what() const;
+			public: const char* what() const throw();
 		};
 		class GradeTooLowException : public std::exception {
-			public: const char* what() const;
+			public: const char* what() const throw();
 		};
 	private:
 		Form( void );

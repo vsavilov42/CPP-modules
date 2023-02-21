@@ -43,7 +43,7 @@ void Bureaucrat::validGrade( int grade ) {
 }
 
 void Bureaucrat::signForm( Form& form ) {
-	form.geSigned(*this);
+	form.beSigned(*this);
 }
 
 const char *Bureaucrat::GradeTooLowException::what( void ) const throw() {

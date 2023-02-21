@@ -7,8 +7,10 @@ Form::Form( const std::string& name, int signGrade, int execGrade ):_name(name),
 	_signGrade(signGrade),
 	_execGrade(execGrade),
 	_signed(false) {
-	Bureaucrat::validGrade(signGrade);
-	Bureaucrat::validGrade(execGrade);
+	if (signGrade > 150 || execGrade > 150)
+		throw Form::GradeTooLowException();
+	if (signGrade < 1 || execGrade < 1)
+		throw Form::GradeTooHighException();
 	std::cout << "Form has been created" << std::endl;
 }
 
@@ -25,6 +27,7 @@ Form::Form( const Form& copy ):_name(copy._name),
 
 Form& Form::operator=( const Form& lhs ) {
 	std::cout << "Form operator = called" << std::endl;
+	(void)lhs;
 	return *this;
 }
 
@@ -61,12 +64,12 @@ const char *Form::GradeTooHighException::what( void ) const throw() {
 }
 
 const char *Form::GradeTooLowException::what( void ) const throw() {
-	return "Exception: grade too low."
+	return "Exception: grade too low.";
 }
 
 std::ostream& operator<<( std::ostream& os, const Form& lhs ) {
-	os << "- Form: " << lhs.getName << " | Sign Grade: " << lhs._signGrade
-		<< " | Exec Grade: " << lhs._execGrade
-		<< " | isSigned: " << lhs._signed << std::endl;
+	os << "- Form: " << lhs.getName() << " | Sign Grade: " << lhs.getSignGrade()
+		<< " | Exec Grade: " << lhs.getExecGrade()
+		<< " | isSigned: " << lhs.getSigned() << std::endl;
 	return os;
 }

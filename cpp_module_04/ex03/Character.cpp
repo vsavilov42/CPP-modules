@@ -4,12 +4,14 @@
 Character::Character( void ) { }
 
 Character::Character( const std::string& name ):_name(name), _nEquiped(0) {
+	std::cout << "Character created. NAME: " << name << std::endl;
 	for (int i = 0; i < Character::maxInventory; i++) {
 		this->_inventory[i] = NULL;
 	}
 }
 
 Character::~Character( void ) {
+	std::cout << "Character and inventory destroyed" << std::endl;
 	for (int i = 0; i < Character::_nEquiped; i++) {
 		delete this->_inventory[i];
 	}
@@ -33,6 +35,7 @@ const std::string& Character::getName( void ) const {
 }
 
 void Character::equip( AMateria* m ) {
+	std::cout << "Character equip with " << m->getType() << std::endl;
 	if (this->_nEquiped < Character::maxInventory) {
 		this->_inventory[this->_nEquiped] = m;
 		this->_nEquiped++;
@@ -41,6 +44,7 @@ void Character::equip( AMateria* m ) {
 
 void Character::unequip( int idx ) {
 	int i;
+	std::cout << "Character unequiped, now has no spells" << std::endl;
 	if (idx >= 0 && idx < this->_nEquiped) {
 		delete this->_inventory[idx];
 		for (i = idx; i < this->_nEquiped - 1; i++) {

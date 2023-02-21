@@ -19,5 +19,5 @@ AMateria* Cure::clone( void ) const {
 }
 
 void Cure::use( ICharacter& target ) {
-	std::cout << target.getName() << "Use Heal magic" << std::endl;
+	std::cout << target.getName() << " Use Heal magic" << std::endl;
 }

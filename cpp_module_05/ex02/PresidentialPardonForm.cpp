@@ -1,6 +1,7 @@
+#include <iostream>
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm( void ):Form("presidnetial pardon", "none", 25, 5) { }
+PresidentialPardonForm::PresidentialPardonForm( void ):Form("presidential pardon", "none", 25, 5) { }
 
 PresidentialPardonForm::PresidentialPardonForm( const std::string& form )
 	:Form("presidential pardon", form, 25, 5) {

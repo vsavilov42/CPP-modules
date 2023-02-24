@@ -18,9 +18,13 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
+FILE = Shrubbery creation_shrubbery
+
 clean:
 	rm -rf $(OBJ)
-	rm "Shrubbery creation_shrubbery"
+	@if [ -f "$(FILE)" ]; then\
+		rm "$(FILE)";\
+	fi
 
 fclean: clean
 	rm -rf $(NAME)
